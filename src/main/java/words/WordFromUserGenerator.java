@@ -16,6 +16,7 @@ public class WordFromUserGenerator implements WordGenerator {
 		System.out.println("Type a word for your opponent: ");
 		this.word = scanner.next();
 		System.out.println("Your word has been saved. Thank you!");
+		scanner.close();
 	}
 
 }
