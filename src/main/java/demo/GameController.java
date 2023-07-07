@@ -29,7 +29,7 @@ public class GameController {
 		incorrectAnswers = 0;
 		
 		for (int i = 0; i < word.length(); i++) {
-			wordOnScreen.append("- ");
+			wordOnScreen.append("-");
 		}
 		
 		while(incorrectAnswers < MAX_ANSWERS) {
@@ -47,7 +47,7 @@ public class GameController {
 				
 			}
 			
-			scanner.close();
+//			scanner.close();
 			
 		}
 		
