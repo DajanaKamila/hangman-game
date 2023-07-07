@@ -17,7 +17,6 @@ public class WordFromFileGenerator implements WordGenerator {
 	
 	public WordFromFileGenerator() {
 		random = new Random();
-		readWordsFromFile();
 	}
 	
 	private void readWordsFromFile() {
@@ -38,6 +37,7 @@ public class WordFromFileGenerator implements WordGenerator {
 	}
 	
 	public String getWord() {
+		readWordsFromFile();
 		if (words.isEmpty()) {
 			return null;
 		}
