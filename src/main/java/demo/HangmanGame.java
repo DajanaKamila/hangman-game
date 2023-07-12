@@ -2,19 +2,23 @@ package demo;
 
 import java.util.Scanner;
 
-import words.WordFromFileGenerator;
-import words.WordGenerator;
+import controllers.GameController;
+import controllers.OptionsController;
+import views.GameView;
+import views.OptionsView;
 
 public class HangmanGame {
 	
+	private OptionsView optionsView;
 	private GameView gameView;
-	private WordGenerator wordGenerator;
 	private GameController gameController;
+	private OptionsController optionsController;
 	
 	public HangmanGame() {
 		gameView = new GameView();
-		wordGenerator = new WordFromFileGenerator();
-		gameController = new GameController(gameView, wordGenerator);
+		optionsView = new OptionsView();
+		gameController = new GameController(gameView);
+		optionsController = new OptionsController(optionsView);
 	}
 
 	
@@ -25,13 +29,12 @@ public class HangmanGame {
 		int gameOrConfig = scanner.nextInt();
 		
 		if (gameOrConfig == 1) {
-			gameController.playGame(gameView);
+			gameController.playGame();
 		} else if (gameOrConfig == 2) {
-			gameView.printUnimplementedOption();
+			optionsController.showOptions();
 		} else {
 			gameView.printInvalidData();
 		}
-		
 		scanner.close();
     }	
 

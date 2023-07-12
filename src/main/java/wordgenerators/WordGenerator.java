@@ -1,4 +1,4 @@
-package words;
+package wordgenerators;
 
 public interface WordGenerator {
 	

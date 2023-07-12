@@ -1,8 +1,8 @@
-package demo;
+package views;
 
 import java.util.List;
 
-public class GameView {
+public class GameView implements View {
 	
     public static final String[] HANGMANPICS = new String[]{
             "  +---+\n" +
@@ -61,7 +61,7 @@ public class GameView {
 	}
 	
 	public void printMenu() {
-		System.out.println("Welcome to the Hangman Gamee! \n"
+		System.out.println("Welcome to the Hangman Game! \n"
 				+ "1. Start game \n2. Options");
 	}
 	
@@ -91,8 +91,10 @@ public class GameView {
 	}
 	
 	public void printLose() {
-		System.out.println("Sorry, you lose! Good luck next time!");
+		System.out.println("Sorry, you lost! Good luck next time!");
 	}
+	
+
 	
 	
 }

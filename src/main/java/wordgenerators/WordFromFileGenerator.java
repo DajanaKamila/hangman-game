@@ -1,4 +1,4 @@
-package words;
+package wordgenerators;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
