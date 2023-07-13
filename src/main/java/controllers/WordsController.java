@@ -10,11 +10,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import views.OptionsView;
+
 public class WordsController {
 	
 	private static final String FILE_PATH = "src/main/resources/words.txt";
 	private Scanner scanner = new Scanner(System.in);
+	private OptionsView optionsView;
 	
+	public WordsController(OptionsView optionsView) {
+		this.optionsView = optionsView;
+	}
+
 	public void showAllWords() {
 		List<String> words = readAllWords();
 		for (String word : words) {
@@ -29,12 +36,12 @@ public class WordsController {
 			try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH, true))) {
 				writer.write(newWord);
 				writer.newLine();
-				System.out.println("Word was successfully added.");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		} else {
-			System.out.println("Please type a correct word - single word longer than 1 letter.");
+			optionsView.printInvalidData();
+			optionsView.printSingleWordInput();
 		}
 	}
 	
@@ -44,12 +51,11 @@ public class WordsController {
 		if (words.contains(wordToDelete)) {
 			words.remove(wordToDelete);
 			writeAllWordsToFile(words);
-			System.out.println("The word has been successfully deleted.");
+			optionsView.printSuccessfullyDeleted();
 		} else {
-			System.out.println("Incorrect word.");
+			optionsView.printInvalidData();
+			optionsView.printSingleWordInput();
 		}
-		
-		
 	}
 	
 	private List<String> readAllWords() {
@@ -76,11 +82,11 @@ public class WordsController {
 			for (String word : words) {
 				addWordToList(word);
 			}
-
+			writer.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
 	}
 
+	
 }

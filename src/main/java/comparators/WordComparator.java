@@ -19,7 +19,6 @@ public class WordComparator {
 	public int compareWholeWords(String playerGuess, String correctWord, int incorrectAnswers, StringBuilder wordOnScreen) {
 		if (playerGuess.equalsIgnoreCase(correctWord)) { 
 			wordUpdater.updateWordOnScreenByWord(wordOnScreen, playerGuess);
-//			gameView.printWinner();
 		} else {
 			gameView.printIncorrectAnswer();
 			incorrectAnswers++;
@@ -41,8 +40,6 @@ public class WordComparator {
 		return incorrectAnswers;
 		
 	}
-	
-
 	
 
 }

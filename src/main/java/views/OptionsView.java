@@ -10,4 +10,23 @@ public class OptionsView implements View {
 		System.out.println("Sorry, invalid data.");
 	}
 	
+	public void printLine() {
+		System.out.println("\n----------------------------------------------\n");
+	}
+	
+	public void printSingleWordInput() { 
+		System.out.println("Please type a single word longer than 1 sign");
+	}
+	
+	public void printGoodbye() {
+		System.out.println("Goodbye! See you soon!");
+	}
+	
+	public void printSuccessfullyDeleted() {
+		System.out.println("The word has been successfully deleted.");
+	}
+	
+	public void printSuccessfullyAdded() {
+		System.out.println("Word has been successfully added.");
+	}
 }

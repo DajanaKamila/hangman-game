@@ -19,6 +19,20 @@ public class WordFromFileGenerator implements WordGenerator {
 		random = new Random();
 	}
 	
+	public String getWord() {
+		readWordsFromFile();
+		if (words.isEmpty()) {
+			return null;
+		}
+		
+		if (word == null) {
+			int randomNumber = random.nextInt(words.size());
+			word = words.get(randomNumber);
+		}
+		
+		return word;
+	}
+	
 	private void readWordsFromFile() {
 		String line;
 		try {
@@ -34,20 +48,6 @@ public class WordFromFileGenerator implements WordGenerator {
 			e.printStackTrace();
 		}
 		
-	}
-	
-	public String getWord() {
-		readWordsFromFile();
-		if (words.isEmpty()) {
-			return null;
-		}
-		
-		if (word == null) {
-			int randomNumber = random.nextInt(words.size());
-			word = words.get(randomNumber);
-		}
-		
-		return word;
 	}
 	
 }

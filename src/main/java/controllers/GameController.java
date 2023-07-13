@@ -35,12 +35,13 @@ public class GameController {
 			wordOnScreen.append("-");
 		}
 		
+		Scanner scanner = new Scanner(System.in);
+		
 		while(incorrectAnswers < MAX_ANSWERS) {
 			
 			gameView.printHangman(incorrectAnswers);
 			gameView.printWordToGuess(wordOnScreen);
 			
-			Scanner scanner = new Scanner(System.in);
 			String playerGuess = scanner.next();
 			
 			if (playerGuess.length() == 1) {
@@ -57,10 +58,12 @@ public class GameController {
 			}
 		}
 		
-		if (incorrectAnswers == MAX_ANSWERS) {
+		if (incorrectAnswers >= MAX_ANSWERS) {
 			gameView.printHangman(incorrectAnswers);
 			gameView.printLose();
 		}
+		
+		scanner.close();
 	}
 		
 }
