@@ -7,10 +7,11 @@ import views.OptionsView;
 public class OptionsController {
 	
 	private OptionsView optionsView;
-	private WordsController wordsController = new WordsController();
+	private WordsController wordsController;
 	
 	public OptionsController(OptionsView optionsView) {
 		this.optionsView = optionsView;
+		this.wordsController = new WordsController(optionsView);
 	}
 
 	public void showOptions() {
@@ -22,22 +23,22 @@ public class OptionsController {
 		
 		if (option == 1) {
 			wordsController.showAllWords();
-			System.out.println("--------------------------------");
+			optionsView.printLine();
 			showOptions();
 		} else if (option == 2) {
-			System.out.println("Type a single word to add: ");
+			optionsView.printSingleWordInput();
 			String newWord = scanner.nextLine();
 			wordsController.addWordToList(newWord);
-			System.out.println("--------------------------------");
+			optionsView.printLine();
 			showOptions();
 		} else if (option == 3) {
-			System.out.println("Type a word to delete: ");
+			optionsView.printSingleWordInput();
 			String wordToDelete = scanner.nextLine();
 			wordsController.deleteWordFromList(wordToDelete);
-			System.out.println("--------------------------------");
+			optionsView.printLine();
 			showOptions();
 		} else if (option == 4) {
-			System.out.println("Bye!");
+			optionsView.printGoodbye();
 		} else {
 			optionsView.printInvalidData();
 		}
